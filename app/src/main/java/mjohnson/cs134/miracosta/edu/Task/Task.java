@@ -2,18 +2,18 @@ package mjohnson.cs134.miracosta.edu.Task;
 
 public class Task {
 
-    private String description;
     private long id;
+    private String description;
     private boolean isDone;
 
-    public Task(String description, long id, boolean isDone) {
-        this.description = description;
+    public Task(long id, String description, boolean isDone) {
         this.id = id;
+        this.description = description;
         this.isDone = isDone;
     }
 
     public Task(String description) {
-        this(description, -1, false);
+        this(-1, description, false);
     }
 
     public String getDescription() {
@@ -24,16 +24,20 @@ public class Task {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setDone(boolean done) {
-        isDone = done;
+    public void flagDone(boolean done) {
+        isDone = !isDone;
     }
 
-    public void isDone() {
-        isDone = true;
+    public boolean isDone() {
+        return isDone;
     }
 
     @Override
